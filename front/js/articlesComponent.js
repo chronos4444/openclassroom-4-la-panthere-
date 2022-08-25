@@ -1,13 +1,14 @@
+/* eslint-disable import/extensions */
 import ArticleComponent from "./articleComponent.js";
 
 class ArticlesComponent {
-  constructor(articleRepository) {
-    this.articleRepository = articleRepository;
+  constructor(getallarticles) {
+    this.getallarticles = getallarticles;
   }
 
   async render() {
     const itemsElement = document.getElementById("items");
-    const articles = await this.articleRepository.getAllArticles();
+    const articles = await this.getallarticles.execute();
 
     articles.forEach((article) => {
       const articleComponent = new ArticleComponent(article);
